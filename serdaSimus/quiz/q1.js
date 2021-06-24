@@ -20,6 +20,8 @@ function maxContiguousSubArray(myArr, k) {
   let maxSum = -Infinity;
   let sum = 0;
 
+  if (!k || !myArr.length || k > myArr.length) return null;
+
   for (let index = 0; index < myArr.length; index++) {
     let winSize = index - winStart + 1;
     sum += myArr[index];
@@ -40,4 +42,7 @@ function maxContiguousSubArray(myArr, k) {
   return maxSum;
 }
 
-console.log(maxContiguousSubArray([2, 3, 1, 5, 6, 9, 2, 3, 5], 3));
+console.log(maxContiguousSubArray([2, 3, 1, 5, 6, 9, 2, 3, 5], 1));
+console.log(maxContiguousSubArray([], 1));
+console.log(maxContiguousSubArray([2, 3, 1, 5, 6, 9, 2, 3, 5], 0));
+console.log(maxContiguousSubArray([2, 3, 1, 5, 6, 9, 2, 3, 5], 20));
